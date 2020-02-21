@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </script>
+</head>
+<body id="LoginForm">
+    <form action="/create" method="POST">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                     <td><input type="number" name="bookid" id="bookid" pattern="{8}" required/></td>
+                     <td><input type="text" name="title" id="title" pattern="[a-zA-Z0-9]\s]{1,70}" required/></td>
+                     <td><input type="text" name="author" id="author" pattern="[a-zA-Z]\s]{1,50}" required/></td>
+                </tr>
+            </tbody>    
+        </table>
+        <% if(!!message_create) {%>
+            <div class="alert alert-danger">
+                <%= message_create %>
+            </div>
+        <% } %>
+        <input type="submit" value="Add Book" id="submit">
+    </div>
+</form>
+</body>
+</html>
