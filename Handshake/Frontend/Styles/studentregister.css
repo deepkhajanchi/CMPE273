@@ -1,0 +1,40 @@
+.reg_body{
+    overflow-x: hidden;
+    font-family: "Suisse Int'l", "apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif";
+}
+.row{
+    margin-top: 20px;
+}
+
+.navbar-brand{
+    float:left;
+    line-height: 40px;
+    height: 40px;
+    border-color: black;
+    opacity: inherit;
+}
+
+.navbar-brand .navbar-brand__logo-full{
+    height:20px;
+    vertical-align:middle;
+}
+
+#main{
+    margin-top: 60px;
+}
+
+.twitter-typeahead{
+    position: relative;
+    display: inline-block;
+    direction: ltr;
+}
+
+.form-control tt-hint{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-color: transparent;
+    box-shadow: none;
+    opacity: 1;
+    background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);
+}

@@ -1,0 +1,273 @@
+.employer-registration{
+    font-family: "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background: #f7f7f7;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.42857;
+    color: rgba(0,0,0,0.8);
+    margin: 0;
+    display: block;
+}
+
+.employer-registration .employer-registration-header, .employer-onboarding .employer-registration-header {
+    background-color: #1569e0;
+    box-sizing: border-box;
+    display: block;
+}
+
+.employer-registration .employer-registration-header-container {
+    width: initial;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    content: " ";
+    display: table;
+}
+
+.employer-registration .employer-registration-header-container .navbar-brand{
+    padding-right: 8px;
+}
+
+.navbar-brand {
+    float: left;
+    line-height: 40px;
+    height: 40px;
+}
+
+a {
+    color: #1569e0;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+.navbar-brand .navbar-brand__logo-full {
+    display: inline;
+    vertical-align: middle;
+}
+
+.employer-registration img {
+    max-width: 100%;
+}
+
+img {
+    border: 0;
+}
+
+.employer-registration .employer-registration-header-container .account-actions{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.employer-registration .employer-registration-header-container{
+    color: #fff;
+}
+
+.employer-registration .employer-registration-header-container .account-actions .already-have-an-account{
+    padding-right: 8px;
+}
+
+.employer-registration .employer-registration-header-container .account-actions .white{
+    color: #fff;
+}
+
+.employer-registration .employer-registration-header-container .account-actions{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.employer-registration .employer-registration-header-container .account-actions .btn-primary{
+    padding-top: 8px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+    padding-left: 24px;
+    border-color: #fff;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.employer-registration .employer-registration-header-container .account-actions .white{
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #1569e0;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.42857;
+    user-select: none;
+}
+
+.employer-registration .main{
+    margin: 0 auto !important;
+}
+
+.main{
+    min-height: 500px;
+}
+
+.employer-registration .employer-registration-container{
+    width: initial;
+    max-width: 800px;
+}
+
+.employer-registration .employer-registration-container{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.employer-registration .employer-registration-content {
+    padding: 40px;
+    background-color: #fff;
+    color: rgba(0,0,0,0.8);
+}
+
+.employer-registration .employer-registration-content{
+    min-height: calc( 100vh - 60px - 24px);
+    margin-top: 24px;
+    overflow: auto;
+}
+
+.employer-registration .employer-registration-side-content {
+    float: right;
+    width: 45%;
+    padding: 8px 0 0 40px;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+}
+
+.employer-registration .employer-registration-form {
+    float: right;
+    width: 55%;
+    padding: 8px 40px 40px 0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.employer-registration .employer-registration-form {
+    box-sizing: border-box;
+}
+
+.employer-registration .employer-registration-content{
+    color: rgba(0,0,0,0.8);
+}
+
+.employer-registration .employer-registration-content{
+    color: rgba(0,0,0,0.8);
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.employer-registration .employer-registration-content h3 {
+    margin: 0 0 40px;
+    font-size: 18px;
+}
+
+h3{
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.employer-registration .employer-registration-form .control-label {
+    font-weight: 400;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+.employer-registration .employer-registration-content .form-control{
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 32px;
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+input{
+    font-family: inherit;
+    font: inherit;
+    margin: 0;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    cursor: text;
+}
+
+.col-md-6{
+    position: relative;
+    min-height: 1px;
+    padding-left: 29px;
+    padding-right: 15px;
+}
+
+.employer-registration .employer-registration-form .control-label {
+    font-weight: 400;
+}
+
