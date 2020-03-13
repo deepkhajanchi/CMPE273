@@ -1,0 +1,241 @@
+.login-v2-container.sidebar .middle-circle-mobile {
+    display: none;
+}
+
+.login-v2-container.absolute {
+    position: absolute;
+}
+
+.login-v2-container .sidebar .logo {
+    position: absolute;
+    left: 30px;
+    top: 25px;
+}
+
+.login-v2-container .sidebar a {
+    color: inherit;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    height: 42px;
+
+}
+
+.login-v2-container a {
+    font-weight: 500;
+}
+
+.login-v2 .sidebar [class^="marketing"] {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.login-v2-container h1:first-of-type {
+    margin-top: 0;
+}
+
+.login-v2-container h1,
+.login-v2-container h2,
+.login-v2-container h3,
+.login-v2-container h4,
+.login-v2-container h5,
+.login-v2-container h6{
+    line-height: 1.2;
+}
+
+.login-v2-container h1{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+h1{
+    font-family: inherit;
+    color: inherit;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px
+}
+
+.login-v2-container.sidebar.content.marketing-content{
+    margin-right: 0;
+    box-sizing: border-box;
+}
+
+
+.login-v2-container p{
+    font-size: 16px;
+}
+
+p{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 9px;
+    margin-left: 0px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.login-v2-container.sidebar.content.marketing-learn-more{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.login-v2-container .sidebar .middle-stroke-web {
+    left: 0;
+    top: 30%;
+}
+
+.login-v2-container .sidebar .bottom-stroke-web {
+    left: 0;
+    bottom: 0;
+}
+
+.login-v2-container .no-account {
+    top: 40px;
+    right: 25px;
+    color: black;
+}
+
+.login-v2-container .no-account .account{
+    top: 40px;
+    right: 25px;
+    color: black;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: black;
+    padding-left: inherit;
+}
+
+.col-md-12{
+    color: black;
+}
+
+.sso-button{
+    padding-left: 150px;
+}
+
+.login-v2-container{
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: auto;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.42857;
+    box-sizing: border-box;
+}
+
+.main{
+    flex-grow:1;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10%;
+    padding-right: 0px;
+    padding-bottom: 10%;
+    padding-left: 0px;
+
+    -webkit-font-smoothing: antialiased;
+    font-family: "Suisse Int'l", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.42857;
+    color: rgba(0,0,0,0);
+    margin: 0;
+
+    display: block;
+}
+
+.centered-container{
+    display: flex;
+    font-family: "Suisse Int'l", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+    width: 390px;
+    font-weight: 400;
+}
+
+
+.sidebar{
+    padding-top: 10%;
+    padding-right: 5%;
+    padding-bottom: 10%;
+    padding-left: 5%;
+    width: 37.5%;
+    background: #1569e0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+}
+
+
+.absolute{
+    position: absolute;
+}
+
+img {
+    vertical-align: middle;
+    border-top-color: initial;
+    border-top-style: initial;
+    border-top-width: 0px;
+    border-right-color: initial;
+    border-right-style: initial;
+    border-right-width: 0px;
+    border-bottom-color: initial;
+    border-bottom-style: initial;
+    border-bottom-width: 0px;
+    border-left-color: initial;
+    border-left-style: initial;
+    border-left-width: 0px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.login-v2-container.sidebar{
+    color:#fff;
+    text-align: center;
+}
+
+.sidebar a {
+    color: inherit;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
