@@ -1,122 +1,84 @@
-//import the require dependencies
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var cors = require('cors');
-app.set('view engine', 'ejs');
+const express = require('express');
+const createError = require('createerror');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const path = require("path")
+const mysql = require('mysql');
+require("dotenv").config()
 
-//use cors to allow cross origin resource sharing
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+const mc = mysql.createPool({
+  host: 'handshake.c6hvi6xe5u7n.us-east-1.rds.amazonaws.com',
+  port: '3306',
+  user: 'deep',
+  password: 'ubuntu8233',
+  database: 'handshake',
+  connectionLimit: 100, //mysql pool length
+});
 
-//use express session to maintain session data
+mc.getConnection((err) => {
+  if (err) {
+    throw err;
+  }
+});
+
+// Express Routes
+const studentRoute = require('./routes/studentroute');
+const companyRoute = require('./routes/companyroute');
+const jobRoute = require('./routes/jobroute');
+const applicationRoute = require('./routes/applicationroute');
+const eventRoute = require('./routes/eventroute');
+const uploadRoute= require('./routes/student_upload')
+const comp_uploadRoute= require('./routes/company_upload')
+
+const app = express();
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
+});
+app.use(bodyParser.urlencoded({
+  extended: true,
+}));
 app.use(session({
-    secret              : 'cmpe273_kafka_passport_mongo',
-    resave              : false, // Forces the session to be saved back to the session store, even if the session was never modified during the request
-    saveUninitialized   : false, // Force to save uninitialized session to db. A session is uninitialized when it is new but not modified.
-    duration            : 60 * 60 * 1000,    // Overall duration of Session : 30 minutes : 1800 seconds
-    activeDuration      :  5 * 60 * 1000
+  secret: 'cmpe_273_secure_string',
+  resave: true,
+  saveUninitialized: true,
 }));
 
-// app.use(bodyParser.urlencoded({
-//     extended: true
-//   }));
-app.use(bodyParser.json());
+app.use(cors());
 
-//Allow Access Control
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.status(200).json('OK');
-    next();
-  });
+app.use('/students', studentRoute);
+app.use('/companies', companyRoute);
+app.use('/jobs', jobRoute);
+app.use('/applications', applicationRoute);
+app.use('/events', eventRoute);
+app.use('/student_upload',uploadRoute);
+app.use('/company_upload',comp_uploadRoute);
 
-  var Users = [{
-      username : "admin",
-      password : "admin"
-  }]
+app.use(express.static(path.join(__dirname, "client", "build")))
 
-  var books = [
-    {"BookID" : "1", "Title" : "Book 1", "Author" : "Author 1"},
-    {"BookID" : "2", "Title" : "Book 2", "Author" : "Author 2"},
-    {"BookID" : "3", "Title" : "Book 3", "Author" : "Author 3"}
-]
-
-//route to root
-app.get('/',(req,res)=>{
-    if(req.session.user){
-        res.render('/home');
-    }else{
-        res.render('login');
-    }
+// PORT
+const port = process.env.PORT || 4000;
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+app.listen(port, () => {
+  console.log(`Connected to port ${port}`);
 });
 
-//Route to handle Post Request Call
-app.post('/login',(req,res)=>{
-    
-    // Object.keys(req.body).forEach(function(key){
-    //     req.body = JSON.parse(key);
-    // });
-    // var username = req.body.username;
-    // var password = req.body.password;
-    if(req.session.user){
-        res.render('/home');
-    }else{
-    
-    console.log("Inside Login Post Request");
-    //console.log("Req Body : ", username + "password : ",password);
-    console.log("Req Body : ",req.body);
-    Users.filter(user=>{
-        if(user.username === req.body.username && user.password === req.body.password){
-            res.cookie('cookie',"admin",{maxAge: 900000, httpOnly: false, path : '/'});
-            req.session.user = user;
-            res.writeHead(200,{
-                'Content-Type' : 'text/plain'
-            })
-            res.end("Successful Login");
-            res.redirect('/home');
-        }
-    });
-}
-    
+// 404 
+app.use((req, res, next) => {
+  next(createError(404));
 });
 
-//Route to get All Books when user visits the Home Page
-app.get('/home', (req,res)=>{
-    if(!req.session.user){
-        res.redirect('/');
-    }else{
-        console.log("Inside Home Login");    
-        res.writeHead(200,{
-            'Content-Type' : 'application/json'
-             });
-    console.log("Books : ",JSON.stringify(books));
-    res.render('home',(JSON.stringify(books)));
-    }
+app.use((err, req, res) => {
+  console.error(err.message);
+  if (!err.statusCode) err.statusCode = 500;
+  res.status(err.statusCode).send(err.message);
 });
-
-app.get('/create',(req,res)=>{
-    if(!req.session.user){
-        res.redirect('/');
-    }else{
-        res.render('home');
-    }
-});
-
-app.post('/create',(req,res)=>{
-    if(!req.session.user){
-        res.redirect('/');
-    }else{
-        res.render('home');
-    }
-    res.render('home');
-});
-
-
-//start your server on port 3001
-app.listen(3001);
-console.log("Server Listening on port 3001");
